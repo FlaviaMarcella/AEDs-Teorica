@@ -1,0 +1,110 @@
+Algoritmo
+    Declare X [0:99] numérico
+    Declare n, p ,med, med_apara, desv, num, pot numéricos, ant, i, j, k
+
+    Imprima "Quantos valores serão inseridos: "
+    Leia n
+    Imprima "Quantos valores a serem desconsiderados da média aparada: "
+    Leia p
+
+    i <-- 0
+    repita
+        se i >= n
+            então interrompa
+        fim-se
+        Imprima "Insira um valor: "
+        Leia x[i]
+        i <-- i + 1
+    fim-repita
+
+    // Cálculo da média
+    i <-- 0
+    med = 0
+    repita
+        se i >= n
+            então interrompa
+        fim-se
+        med = med + x[i]
+        i <-- i + 1
+    fim-repita
+    
+    med = med / n
+    Imprima "Média: ", med
+
+    // Ordenação do vetor
+    
+    i <-- 0
+    repita
+      se i >= n 
+         então interrompa
+      fim-se
+      
+	   j <-- 0
+   	   repita
+   	   
+      	     se j >= n 
+         	então interrompa
+	     fim-se
+	     
+	     ant <-- x[i]
+	     x[i] <-- x[j]
+	     x[j] <-- ant
+	     
+             j <-- j + 1
+             
+           fim-repita
+      i <-- i + 1
+    fim-repita
+
+    // Imprime o vetor ordenado
+    
+    Imprima "Vetor ordenado: "
+    
+    k <-- 0
+    repita
+      se k >= n 
+         então interrompa
+      fim-se
+      Imprima x[K], " "
+      k <-- k + 1
+    fim-repita
+    
+    // Cálculo da média aparada
+    med_apara = 0
+    
+    i <-- p
+    repita
+        se i >= n - p
+            então interrompa
+        fim-se
+        
+        med_apara = med_apara + x[i]
+        
+        i <-- i + 1
+    fim-repita
+    
+    med_apara = med_apara / n
+    Imprima "Média Aparada: ", med_apara
+
+    // Cálculo do desvio padrão
+    num = 0
+    
+    i <-- 0
+    repita
+      se i >= n 
+         então interrompa
+      fim-se
+
+      pot = x[i] - med
+      pot = pot * pot
+      num = num + pot
+
+      i <-- i + 1
+    fim-repita
+    
+    desv = num / n
+    desv = RaizQuadrada(desv)
+    Imprima "Desvio Padrão: ", desv
+
+Fim-algoritmo
+
